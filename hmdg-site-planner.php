@@ -25,6 +25,7 @@ define( 'HMDG_SP_ASSETS',    HMDG_SP_URL . 'assets/' );
 
 // Autoload core classes
 require_once HMDG_SP_DIR . 'includes/class-hmdg-site-planner.php';
+require_once HMDG_SP_DIR . 'includes/class-hmdg-shortcode.php';
 require_once HMDG_SP_DIR . 'admin/class-hmdg-admin.php';
 
 /**
@@ -32,6 +33,7 @@ require_once HMDG_SP_DIR . 'admin/class-hmdg-admin.php';
  */
 function hmdg_site_planner_init(): void {
     HMDG_Site_Planner::instance();
+    HMDG_Shortcode::instance();
     HMDG_Admin::instance();
 }
 add_action( 'plugins_loaded', 'hmdg_site_planner_init' );
