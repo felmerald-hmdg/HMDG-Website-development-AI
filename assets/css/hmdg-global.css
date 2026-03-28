@@ -1,0 +1,257 @@
+/* =============================================================================
+   HMDG Site Planner — Global Styles
+   Version: 1.0.0
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   1. Design Tokens (CSS Custom Properties)
+   ----------------------------------------------------------------------------- */
+:root {
+    /* Colors */
+    --hmdg-primary:            #db0a40;
+    --hmdg-primary-hover:      #e61c51;
+    --hmdg-headline:           #db0a40;
+    --hmdg-body:               #222222;
+    --hmdg-mute:               #ffffff;
+
+    /* Secondary button */
+    --hmdg-secondary:          #db0a40;
+    --hmdg-secondary-hover-bg: rgba(219, 10, 64, 0.3);
+
+    /* Surfaces */
+    --hmdg-bg:                 #f7f7f8;
+    --hmdg-card-bg:            #ffffff;
+    --hmdg-border:             #ebebeb;
+    --hmdg-shadow:             0 2px 12px rgba(0, 0, 0, 0.07);
+
+    /* Typography */
+    --hmdg-font-heading:       'Cabinet Grotesk', sans-serif;
+    --hmdg-font-body:          'Satoshi', sans-serif;
+
+    /* Spacing */
+    --hmdg-radius:             10px;
+    --hmdg-radius-sm:          6px;
+}
+
+/* -----------------------------------------------------------------------------
+   2. Base / Reset (scoped to .hmdg-wrap)
+   ----------------------------------------------------------------------------- */
+.hmdg-wrap,
+.hmdg-wrap * {
+    box-sizing: border-box;
+}
+
+.hmdg-wrap {
+    font-family:  var(--hmdg-font-body);
+    color:        var(--hmdg-body);
+    font-size:    15px;
+    line-height:  1.6;
+    background:   var(--hmdg-bg);
+    min-height:   100vh;
+    padding-bottom: 60px;
+}
+
+/* -----------------------------------------------------------------------------
+   3. Typography — Headings
+   ----------------------------------------------------------------------------- */
+.hmdg-wrap h1,
+.hmdg-wrap h2,
+.hmdg-wrap h3,
+.hmdg-wrap h4,
+.hmdg-wrap h5,
+.hmdg-wrap h6 {
+    font-family: var(--hmdg-font-heading);
+    color:       var(--hmdg-headline);
+    line-height: 1.2;
+    margin-top:  0;
+}
+
+.hmdg-wrap h1 { font-weight: 800; font-size: clamp(28px, 4vw, 42px); }
+.hmdg-wrap h2 { font-weight: 700; font-size: clamp(22px, 3vw, 32px); }
+.hmdg-wrap h3 { font-weight: 500; font-size: clamp(18px, 2.5vw, 24px); }
+.hmdg-wrap h4 { font-weight: 400; font-size: 20px; }
+.hmdg-wrap h5 { font-weight: 400; font-size: 17px; }
+.hmdg-wrap h6 { font-weight: 400; font-size: 15px; }
+
+/* -----------------------------------------------------------------------------
+   4. Header
+   ----------------------------------------------------------------------------- */
+.hmdg-header {
+    background:   var(--hmdg-primary);
+    padding:      32px 40px;
+    margin-bottom: 32px;
+}
+
+.hmdg-header__inner {
+    max-width: 1200px;
+}
+
+.hmdg-header__title {
+    color:       var(--hmdg-mute);
+    font-weight: 800;
+    font-size:   clamp(24px, 3vw, 36px);
+    margin-bottom: 6px;
+}
+
+.hmdg-header__title span {
+    opacity: 0.85;
+}
+
+.hmdg-header__sub {
+    color:       var(--hmdg-mute);
+    opacity:     0.8;
+    font-size:   15px;
+    margin:      0;
+}
+
+/* -----------------------------------------------------------------------------
+   5. Main Content Area
+   ----------------------------------------------------------------------------- */
+.hmdg-main {
+    padding: 0 40px;
+}
+
+.hmdg-main h2 {
+    color:         var(--hmdg-body);
+    font-weight:   700;
+    font-size:     13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom:  4px;
+}
+
+/* -----------------------------------------------------------------------------
+   6. Cards
+   ----------------------------------------------------------------------------- */
+.hmdg-card {
+    background:    var(--hmdg-card-bg);
+    border:        1px solid var(--hmdg-border);
+    border-radius: var(--hmdg-radius);
+    box-shadow:    var(--hmdg-shadow);
+    padding:       28px;
+    display:       flex;
+    flex-direction: column;
+    gap:            12px;
+    height:         100%;
+    transition:     transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hmdg-card:hover {
+    transform:  translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.hmdg-card--soon {
+    opacity: 0.65;
+}
+
+.hmdg-card--soon:hover {
+    transform: none;
+    box-shadow: var(--hmdg-shadow);
+}
+
+.hmdg-card__badge {
+    display:       inline-block;
+    background:    rgba(219, 10, 64, 0.08);
+    color:         var(--hmdg-primary);
+    font-family:   var(--hmdg-font-heading);
+    font-weight:   700;
+    font-size:     11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding:        3px 10px;
+    border-radius:  20px;
+    width:          fit-content;
+}
+
+.hmdg-card__title {
+    color:       var(--hmdg-body);
+    font-weight: 500;
+    font-size:   18px;
+    margin:      0;
+}
+
+.hmdg-card__desc {
+    color:       #666;
+    font-size:   14px;
+    flex-grow:   1;
+    margin:      0;
+}
+
+/* -----------------------------------------------------------------------------
+   7. Buttons
+   ----------------------------------------------------------------------------- */
+
+/* --- Primary Button --- */
+.hmdg-btn {
+    display:        inline-flex;
+    align-items:    center;
+    justify-content: center;
+    gap:             8px;
+    font-family:    var(--hmdg-font-heading);
+    font-weight:    700;
+    font-size:      14px;
+    line-height:    1;
+    padding:        11px 24px;
+    border-radius:  var(--hmdg-radius-sm);
+    border:         2px solid transparent;
+    cursor:         pointer;
+    text-decoration: none;
+    transition:     background 0.18s ease, border-color 0.18s ease, color 0.18s ease, opacity 0.18s ease;
+    white-space:    nowrap;
+}
+
+.hmdg-btn:focus-visible {
+    outline:        3px solid rgba(219, 10, 64, 0.4);
+    outline-offset: 3px;
+}
+
+/* Primary */
+.hmdg-btn--primary {
+    background:  var(--hmdg-primary);
+    border-color: var(--hmdg-primary);
+    color:       var(--hmdg-mute);
+}
+
+.hmdg-btn--primary:hover:not(:disabled) {
+    background:  var(--hmdg-primary-hover);
+    border-color: var(--hmdg-primary-hover);
+    color:       var(--hmdg-mute);
+}
+
+/* Secondary */
+.hmdg-btn--secondary {
+    background:   transparent;
+    border-color: var(--hmdg-secondary);
+    color:        var(--hmdg-secondary);
+}
+
+.hmdg-btn--secondary:hover:not(:disabled) {
+    background:  var(--hmdg-secondary-hover-bg);
+    border-color: var(--hmdg-secondary);
+    color:        var(--hmdg-secondary);
+}
+
+/* Disabled state */
+.hmdg-btn:disabled {
+    cursor:  not-allowed;
+    opacity: 0.45;
+}
+
+/* Bootstrap overrides — align Bootstrap buttons to HMDG tokens */
+.hmdg-wrap .btn-primary {
+    --bs-btn-bg:           var(--hmdg-primary);
+    --bs-btn-border-color: var(--hmdg-primary);
+    --bs-btn-hover-bg:     var(--hmdg-primary-hover);
+    --bs-btn-hover-border-color: var(--hmdg-primary-hover);
+    --bs-btn-active-bg:    var(--hmdg-primary-hover);
+    font-family: var(--hmdg-font-heading);
+    font-weight: 700;
+}
+
+/* -----------------------------------------------------------------------------
+   8. Utilities
+   ----------------------------------------------------------------------------- */
+.hmdg-text-primary  { color: var(--hmdg-primary) !important; }
+.hmdg-text-mute     { color: var(--hmdg-mute) !important; }
+.hmdg-bg-primary    { background: var(--hmdg-primary) !important; }
