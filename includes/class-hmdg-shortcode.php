@@ -84,7 +84,24 @@ class HMDG_Shortcode {
             true
         );
 
-        wp_localize_script( 'hmdg-global', 'HMDG', [
+        // Phase 1 CSS
+        wp_enqueue_style(
+            'hmdg-phase1',
+            HMDG_SP_ASSETS . 'css/hmdg-phase1.css',
+            [ 'hmdg-global' ],
+            HMDG_SP_VERSION
+        );
+
+        // Phase 1 JS
+        wp_enqueue_script(
+            'hmdg-phase1',
+            HMDG_SP_ASSETS . 'js/hmdg-phase1.js',
+            [ 'hmdg-global' ],
+            HMDG_SP_VERSION,
+            true
+        );
+
+        wp_localize_script( 'hmdg-phase1', 'HMDG', [
             'ajaxUrl' => admin_url( 'admin-ajax.php' ),
             'nonce'   => wp_create_nonce( 'hmdg_nonce' ),
             'version' => HMDG_SP_VERSION,

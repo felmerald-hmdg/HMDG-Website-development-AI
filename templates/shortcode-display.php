@@ -1,7 +1,7 @@
 <?php
 /**
  * Front-end template for [hmdg-website-development-ai] shortcode.
- * Phase 1 — Landing / Hero.
+ * Phase 1 — multi-step: Hero → Questionnaire → Results.
  *
  * @package HMDG_Site_Planner
  */
@@ -11,9 +11,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<div class="hmdg-wrap hmdg-landing">
+<div class="hmdg-wrap hmdg-phase1-app" id="hmdg-app">
 
-    <section class="hmdg-hero">
+    <!-- ================================================================
+         STEP 1 — HERO
+    ================================================================ -->
+    <section class="hmdg-step hmdg-hero" id="hmdg-step-hero" data-step="1">
         <div class="hmdg-hero__inner">
 
             <p class="hmdg-hero__label">
@@ -34,16 +37,12 @@ if ( ! defined( 'ABSPATH' ) ) {
             <div class="hmdg-hero__input-wrap">
                 <input
                     type="text"
-                    id="hmdg-prompt"
+                    id="hmdg-hero-prompt"
                     class="hmdg-hero__input"
                     placeholder="<?php esc_attr_e( 'Describe your project, and get an AI-powered wireframe in minutes…', 'hmdg-site-planner' ); ?>"
                     autocomplete="off"
                 />
-                <button
-                    class="hmdg-btn hmdg-btn--primary hmdg-hero__cta"
-                    id="hmdg-generate"
-                    type="button"
-                >
+                <button class="hmdg-btn hmdg-btn--primary hmdg-hero__cta" id="hmdg-start" type="button">
                     <span class="hmdg-hero__cta-icon" aria-hidden="true">✦</span>
                     <?php esc_html_e( 'Generate', 'hmdg-site-planner' ); ?>
                 </button>
@@ -52,4 +51,18 @@ if ( ! defined( 'ABSPATH' ) ) {
         </div>
     </section>
 
-</div><!-- .hmdg-landing -->
+    <!-- ================================================================
+         STEP 2 — QUESTIONNAIRE
+    ================================================================ -->
+    <section class="hmdg-step hmdg-questionnaire" id="hmdg-step-questionnaire" data-step="2" hidden>
+        <?php require HMDG_SP_DIR . 'templates/partials/step-questionnaire.php'; ?>
+    </section>
+
+    <!-- ================================================================
+         STEP 3 — RESULTS
+    ================================================================ -->
+    <section class="hmdg-step hmdg-results" id="hmdg-step-results" data-step="3" hidden>
+        <?php require HMDG_SP_DIR . 'templates/partials/step-results.php'; ?>
+    </section>
+
+</div><!-- #hmdg-app -->
