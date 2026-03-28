@@ -117,15 +117,17 @@ The Project Manager can assign a designer to each project directly from the Clie
 
 **Available Designers:**
 
-- Felmerald
-- Larry
-- Junemark
-- Princess
-- Antonio
-- Mondred
-- JhayR
-- Dannis
-- Joshua
+| Name | Email |
+|---|---|
+| Felmerald | felmerald@hmdg.co.uk |
+| Larry | larry@hmdg.co.uk |
+| Junemark | junemark@hmdg.co.uk |
+| Princess | princess@hmdg.co.uk |
+| Antonio | antonio@hmdg.co.uk |
+| Mondred | mondred@hmdg.co.uk |
+| JhayR | renato@hmdg.co.uk |
+| Dannis | dannis@hmdg.co.uk |
+| Joshua | joshua@hmdg.co.uk |
 
 The assignment is made via a dropdown selector in the Client Table row.
 
