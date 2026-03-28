@@ -45,7 +45,10 @@ class HMDG_Mailer {
             'From: HMDG Site Planner <noreply@hmdg.co.uk>',
         ];
 
-        if ( ! empty( $client_email ) && is_email( $client_email ) ) {
+        $client_email_from_plan = $plan['client_info']['email'] ?? $client_email;
+        if ( ! empty( $client_email_from_plan ) && is_email( $client_email_from_plan ) ) {
+            $headers[] = 'CC: ' . sanitize_email( $client_email_from_plan );
+        } elseif ( ! empty( $client_email ) && is_email( $client_email ) ) {
             $headers[] = 'CC: ' . sanitize_email( $client_email );
         }
 
@@ -108,10 +111,22 @@ class HMDG_Mailer {
                     <td style="font-size:13px;color:#888;">Date</td>
                     <td style="font-size:13px;color:#222;font-weight:600;text-align:right;"><?php echo esc_html( $date ); ?></td>
                 </tr>
+                <?php if ( ! empty( $plan['client_info']['contact_name'] ) ) : ?>
+                <tr>
+                    <td style="font-size:13px;color:#888;padding-top:6px;">Contact Person</td>
+                    <td style="font-size:13px;color:#222;font-weight:600;text-align:right;padding-top:6px;"><?php echo esc_html( $plan['client_info']['contact_name'] ); ?></td>
+                </tr>
+                <?php endif; ?>
                 <?php if ( $client_email ) : ?>
                 <tr>
                     <td style="font-size:13px;color:#888;padding-top:6px;">Client Email</td>
                     <td style="font-size:13px;color:#222;font-weight:600;text-align:right;padding-top:6px;"><?php echo esc_html( $client_email ); ?></td>
+                </tr>
+                <?php endif; ?>
+                <?php if ( ! empty( $plan['client_info']['client_phone'] ) ) : ?>
+                <tr>
+                    <td style="font-size:13px;color:#888;padding-top:6px;">Phone</td>
+                    <td style="font-size:13px;color:#222;font-weight:600;text-align:right;padding-top:6px;"><?php echo esc_html( $plan['client_info']['client_phone'] ); ?></td>
                 </tr>
                 <?php endif; ?>
                 <tr>

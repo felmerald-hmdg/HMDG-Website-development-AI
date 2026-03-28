@@ -303,11 +303,13 @@ const HMDG_Phase1 = (() => {
     // -------------------------------------------------------------------------
     async function sendToPM(clientEmail, pmNotes) {
         const body = new FormData();
-        body.append('action',       'hmdg_send_to_pm');
-        body.append('nonce',        HMDG.nonce);
-        body.append('client_email', clientEmail);
-        body.append('pm_notes',     pmNotes);
-        body.append('plan',         JSON.stringify(planData));
+        body.append('action',        'hmdg_send_to_pm');
+        body.append('nonce',         HMDG.nonce);
+        body.append('client_email',  clientEmail);
+        body.append('pm_notes',      pmNotes);
+        body.append('contact_name',  lastFormData?.contact_name  || '');
+        body.append('client_phone',  lastFormData?.client_phone  || '');
+        body.append('plan',          JSON.stringify(planData));
 
         try {
             const json = await postAjax(body);

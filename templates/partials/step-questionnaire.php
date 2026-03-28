@@ -56,8 +56,17 @@ if ( ! defined( 'ABSPATH' ) ) {
                 </div>
 
                 <div class="col-md-6">
+                    <label class="hmdg-q-label" for="hmdg-contact-name">
+                        <?php esc_html_e( 'Contact Person Name', 'hmdg-site-planner' ); ?> <span class="hmdg-req">*</span>
+                    </label>
+                    <input type="text" id="hmdg-contact-name" name="contact_name" class="hmdg-q-input" required
+                        placeholder="<?php esc_attr_e( 'e.g. John Smith', 'hmdg-site-planner' ); ?>"
+                        autocomplete="name">
+                </div>
+
+                <div class="col-md-6">
                     <label class="hmdg-q-label" for="hmdg-business-name">
-                        <?php esc_html_e( 'Business / Client Name', 'hmdg-site-planner' ); ?> <span class="hmdg-req">*</span>
+                        <?php esc_html_e( 'Business / Company Name', 'hmdg-site-planner' ); ?> <span class="hmdg-req">*</span>
                     </label>
                     <input type="text" id="hmdg-business-name" name="business_name" class="hmdg-q-input" required
                         placeholder="<?php esc_attr_e( 'e.g. Acme Agency', 'hmdg-site-planner' ); ?>">
@@ -65,12 +74,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 
                 <div class="col-md-6">
                     <label class="hmdg-q-label" for="hmdg-client-email">
-                        <?php esc_html_e( 'Client Email', 'hmdg-site-planner' ); ?>
-                        <span style="color:#999;font-weight:400;"> — <?php esc_html_e( 'for a copy of the plan', 'hmdg-site-planner' ); ?></span>
+                        <?php esc_html_e( 'Client Email', 'hmdg-site-planner' ); ?> <span class="hmdg-req">*</span>
                     </label>
-                    <input type="email" id="hmdg-client-email" name="client_email" class="hmdg-q-input"
+                    <input type="email" id="hmdg-client-email" name="client_email" class="hmdg-q-input" required
                         placeholder="<?php esc_attr_e( 'client@example.com', 'hmdg-site-planner' ); ?>"
                         autocomplete="email">
+                </div>
+
+                <div class="col-md-6">
+                    <label class="hmdg-q-label" for="hmdg-client-phone">
+                        <?php esc_html_e( 'Phone / Contact Number', 'hmdg-site-planner' ); ?>
+                    </label>
+                    <input type="tel" id="hmdg-client-phone" name="client_phone" class="hmdg-q-input"
+                        placeholder="<?php esc_attr_e( 'e.g. +44 7700 900000', 'hmdg-site-planner' ); ?>"
+                        autocomplete="tel">
                 </div>
 
                 <div class="col-md-6">

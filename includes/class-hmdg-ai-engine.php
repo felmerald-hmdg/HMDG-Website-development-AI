@@ -212,7 +212,10 @@ PROMPT;
         return <<<INPUT
 CLIENT QUESTIONNAIRE DATA:
 
+Contact Person: {$data['contact_name']}
 Business Name: {$data['business_name']}
+Client Email: {$data['client_email']}
+Client Phone: {$data['client_phone']}
 Business Type: {$data['business_type']}
 Business Location: {$data['location']}
 Site Language: {$data['language']}

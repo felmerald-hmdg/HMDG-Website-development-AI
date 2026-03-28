@@ -102,10 +102,19 @@ class HMDG_Ajax {
     public function send_to_pm(): void {
         check_ajax_referer( 'hmdg_nonce', 'nonce' );
 
-        $client_email = sanitize_email(        $_POST['client_email'] ?? '' );
-        $pm_notes     = sanitize_textarea_field( $_POST['pm_notes']   ?? '' );
+        $client_email = sanitize_email(          $_POST['client_email']  ?? '' );
+        $pm_notes     = sanitize_textarea_field( $_POST['pm_notes']      ?? '' );
+        $contact_name = sanitize_text_field(     $_POST['contact_name']  ?? '' );
+        $client_phone = sanitize_text_field(     $_POST['client_phone']  ?? '' );
         $plan_json    = wp_unslash( $_POST['plan'] ?? '{}' );
         $plan         = json_decode( $plan_json, true ) ?: [];
+
+        // Attach contact info to the plan so the mailer can use it
+        $plan['client_info'] = [
+            'contact_name' => $contact_name,
+            'email'        => $client_email,
+            'client_phone' => $client_phone,
+        ];
 
         if ( empty( $plan ) ) {
             wp_send_json_error( [ 'message' => __( 'No plan data received.', 'hmdg-site-planner' ) ] );
@@ -196,7 +205,10 @@ class HMDG_Ajax {
 
         return [
             'description'  => sanitize_textarea_field( $post['description']  ?? '' ),
+            'contact_name' => sanitize_text_field(     $post['contact_name'] ?? '' ),
             'business_name'=> sanitize_text_field(     $post['business_name']?? '' ),
+            'client_email' => sanitize_email(          $post['client_email'] ?? '' ),
+            'client_phone' => sanitize_text_field(     $post['client_phone'] ?? '' ),
             'business_type'=> sanitize_text_field(     $post['business_type']?? '' ),
             'location'     => sanitize_text_field(     $post['location']     ?? '' ),
             'language'     => sanitize_text_field(     $post['language']     ?? 'English' ),
