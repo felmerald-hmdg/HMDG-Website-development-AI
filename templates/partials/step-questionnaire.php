@@ -83,9 +83,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
                 <div class="col-md-6">
                     <label class="hmdg-q-label" for="hmdg-client-phone">
-                        <?php esc_html_e( 'Phone / Contact Number', 'hmdg-site-planner' ); ?>
+                        <?php esc_html_e( 'Phone / Contact Number', 'hmdg-site-planner' ); ?> <span class="hmdg-req">*</span>
                     </label>
-                    <input type="tel" id="hmdg-client-phone" name="client_phone" class="hmdg-q-input"
+                    <input type="tel" id="hmdg-client-phone" name="client_phone" class="hmdg-q-input" required
                         placeholder="<?php esc_attr_e( 'e.g. +44 7700 900000', 'hmdg-site-planner' ); ?>"
                         autocomplete="tel">
                 </div>
