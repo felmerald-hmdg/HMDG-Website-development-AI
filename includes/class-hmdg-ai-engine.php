@@ -50,6 +50,50 @@ class HMDG_AI_Engine {
         return $this->parse_response( $raw );
     }
 
+    /**
+     * Regenerate a site plan based on client revision feedback.
+     *
+     * @param array  $data          Original questionnaire data.
+     * @param string $feedback      Client's revision request.
+     * @param array  $previous_plan The previously generated plan.
+     * @return array|WP_Error
+     */
+    public function regenerate_site_plan( array $data, string $feedback, array $previous_plan ): array|WP_Error {
+        $settings = HMDG_Settings::instance();
+
+        if ( ! $settings->has_api_key() ) {
+            return new WP_Error( 'no_api_key', __( 'No API key configured.', 'hmdg-site-planner' ) );
+        }
+
+        $provider        = $settings->get( 'provider' );
+        $original_input  = $this->build_user_input( $data );
+        $plan_summary    = wp_json_encode( $previous_plan, JSON_PRETTY_PRINT );
+
+        $revision_input  = <<<INPUT
+ORIGINAL CLIENT DATA:
+{$original_input}
+
+PREVIOUS SITE PLAN (JSON):
+{$plan_summary}
+
+CLIENT REVISION REQUEST:
+{$feedback}
+
+Please revise the site plan based on the client's feedback. Keep everything they liked and improve only what was requested. Return the full updated plan in the same JSON format.
+INPUT;
+
+        $raw = match ( $provider ) {
+            'openai' => $this->call_openai( $settings, $revision_input ),
+            default  => $this->call_claude( $settings, $revision_input ),
+        };
+
+        if ( is_wp_error( $raw ) ) {
+            return $raw;
+        }
+
+        return $this->parse_response( $raw );
+    }
+
     // -------------------------------------------------------------------------
     // Prompt builders
     // -------------------------------------------------------------------------

@@ -744,7 +744,356 @@
 }
 
 /* -----------------------------------------------------------------------------
-   7. Responsive
+   7. Approval Bar + Revision Panel
+   ----------------------------------------------------------------------------- */
+
+.hmdg-approval-bar {
+    background:   #fff;
+    border-top:   2px solid var(--hmdg-border);
+    padding:      24px 40px;
+    position:     sticky;
+    bottom:       0;
+    z-index:      80;
+    box-shadow:   0 -4px 20px rgba(0,0,0,0.06);
+}
+
+.hmdg-approval-bar__inner {
+    max-width:       1240px;
+    margin:          0 auto;
+    display:         flex;
+    align-items:     center;
+    justify-content: space-between;
+    gap:             16px;
+    flex-wrap:       wrap;
+}
+
+.hmdg-approval-bar__question {
+    font-family: var(--hmdg-font-heading);
+    font-weight: 700;
+    font-size:   17px;
+    color:       #111;
+    margin:      0;
+}
+
+.hmdg-approval-bar__actions {
+    display: flex;
+    gap:     10px;
+    flex-wrap: wrap;
+}
+
+/* Revision panel */
+.hmdg-revision-panel {
+    background:   #fff;
+    border-top:   1px solid var(--hmdg-border);
+    padding:      32px 40px;
+}
+
+.hmdg-revision-inner {
+    max-width: 800px;
+    margin:    0 auto;
+}
+
+.hmdg-revision-inner h3 {
+    font-family:   var(--hmdg-font-heading);
+    font-weight:   700;
+    font-size:     20px;
+    color:         #111;
+    margin-bottom: 6px;
+}
+
+.hmdg-revision-inner p {
+    color:         #666;
+    font-size:     14px;
+    margin-bottom: 16px;
+}
+
+.hmdg-revision-actions {
+    display:    flex;
+    gap:        10px;
+    margin-top: 16px;
+    flex-wrap:  wrap;
+}
+
+/* -----------------------------------------------------------------------------
+   8. Send to PM Step
+   ----------------------------------------------------------------------------- */
+
+.hmdg-send-wrap {
+    min-height: 100vh;
+    background: #f7f7f8;
+    padding-bottom: 80px;
+}
+
+.hmdg-send-header {
+    background:    #fff;
+    border-bottom: 1px solid var(--hmdg-border);
+    padding:       32px 40px;
+}
+
+.hmdg-send-header__inner {
+    max-width:   1240px;
+    margin:      0 auto;
+    display:     flex;
+    align-items: flex-start;
+    gap:         20px;
+}
+
+.hmdg-send-header__icon {
+    width:         52px;
+    height:        52px;
+    background:    rgba(56,161,105,0.1);
+    color:         #38a169;
+    border-radius: 50%;
+    display:       flex;
+    align-items:   center;
+    justify-content: center;
+    font-size:     22px;
+    font-weight:   700;
+    flex-shrink:   0;
+}
+
+.hmdg-send-header__title {
+    font-family:   var(--hmdg-font-heading);
+    font-weight:   800;
+    font-size:     clamp(22px, 2.5vw, 30px);
+    color:         #111;
+    margin:        8px 0 6px;
+}
+
+.hmdg-send-header__sub {
+    color:     #666;
+    font-size: 15px;
+    margin:    0;
+}
+
+.hmdg-send-body {
+    max-width: 720px;
+    margin:    0 auto;
+    padding:   32px 40px;
+}
+
+/* Recipients display */
+.hmdg-send-recipients {
+    background:    rgba(219,10,64,0.04);
+    border:        1px solid rgba(219,10,64,0.15);
+    border-radius: 10px;
+    padding:       20px;
+    margin-bottom: 24px;
+}
+
+.hmdg-send-recipients__label {
+    font-family:   var(--hmdg-font-heading);
+    font-weight:   700;
+    font-size:     12px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color:         #999;
+    margin-bottom: 12px;
+}
+
+.hmdg-send-recipients__list {
+    display:       flex;
+    flex-direction: column;
+    gap:           10px;
+}
+
+.hmdg-send-recipient {
+    display:     flex;
+    align-items: center;
+    gap:         12px;
+    font-size:   14px;
+}
+
+.hmdg-send-recipient__icon { font-size: 18px; }
+
+.hmdg-send-recipient strong {
+    display:     block;
+    font-weight: 700;
+    color:       #222;
+    font-size:   14px;
+}
+
+.hmdg-send-recipient span {
+    color:     #666;
+    font-size: 13px;
+}
+
+/* Form fields */
+.hmdg-send-field { margin-bottom: 20px; }
+
+/* What's included */
+.hmdg-send-includes {
+    background:    #f9f9f9;
+    border-radius: 10px;
+    padding:       16px 20px;
+    margin-bottom: 24px;
+}
+
+.hmdg-send-includes__label {
+    font-family:   var(--hmdg-font-heading);
+    font-weight:   700;
+    font-size:     12px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color:         #999;
+    margin-bottom: 10px;
+}
+
+.hmdg-send-includes__list {
+    list-style: none;
+    padding:    0;
+    margin:     0;
+    display:    flex;
+    flex-direction: column;
+    gap:        6px;
+}
+
+.hmdg-send-includes__list li {
+    font-size: 14px;
+    color:     #38a169;
+    font-weight: 600;
+}
+
+/* Actions */
+.hmdg-send-actions {
+    display:    flex;
+    gap:        10px;
+    flex-wrap:  wrap;
+    align-items: center;
+}
+
+.hmdg-send-submit {
+    font-size: 15px;
+    padding:   14px 28px;
+}
+
+/* -----------------------------------------------------------------------------
+   9. Confirmation Step
+   ----------------------------------------------------------------------------- */
+
+.hmdg-confirm-wrap {
+    min-height:      100vh;
+    background:      #f7f7f8;
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    padding:         40px 20px;
+}
+
+.hmdg-confirm-inner {
+    max-width:      680px;
+    width:          100%;
+    background:     #fff;
+    border-radius:  10px;
+    border:         1px solid var(--hmdg-border);
+    padding:        48px 48px;
+    text-align:     center;
+    box-shadow:     0 4px 24px rgba(0,0,0,0.06);
+}
+
+.hmdg-confirm-icon {
+    width:         72px;
+    height:        72px;
+    background:    rgba(56,161,105,0.1);
+    color:         #38a169;
+    border-radius: 50%;
+    display:       inline-flex;
+    align-items:   center;
+    justify-content: center;
+    font-size:     32px;
+    font-weight:   700;
+    margin-bottom: 16px;
+}
+
+.hmdg-confirm-title {
+    font-family:   var(--hmdg-font-heading);
+    font-weight:   800;
+    font-size:     clamp(24px, 3vw, 34px);
+    color:         #111;
+    margin:        12px 0 10px;
+}
+
+.hmdg-confirm-sub {
+    color:         #666;
+    font-size:     16px;
+    max-width:     460px;
+    margin:        0 auto 32px;
+    line-height:   1.6;
+}
+
+/* What happens next */
+.hmdg-confirm-next {
+    text-align: left;
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding:    24px;
+    margin-bottom: 24px;
+}
+
+.hmdg-confirm-next h3 {
+    font-family:   var(--hmdg-font-heading);
+    font-weight:   700;
+    font-size:     14px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color:         #999;
+    margin-bottom: 16px;
+}
+
+.hmdg-confirm-steps {
+    list-style: none;
+    padding:    0;
+    margin:     0;
+    display:    flex;
+    flex-direction: column;
+    gap:        16px;
+}
+
+.hmdg-confirm-steps li {
+    display:     flex;
+    align-items: flex-start;
+    gap:         14px;
+}
+
+.hmdg-confirm-steps__num {
+    width:         28px;
+    height:        28px;
+    background:    var(--hmdg-primary);
+    color:         #fff;
+    border-radius: 50%;
+    display:       inline-flex;
+    align-items:   center;
+    justify-content: center;
+    font-family:   var(--hmdg-font-heading);
+    font-weight:   800;
+    font-size:     12px;
+    flex-shrink:   0;
+    margin-top:    2px;
+}
+
+.hmdg-confirm-steps li strong {
+    display:       block;
+    font-family:   var(--hmdg-font-heading);
+    font-weight:   700;
+    font-size:     14px;
+    color:         #222;
+    margin-bottom: 2px;
+}
+
+.hmdg-confirm-steps li p {
+    font-size: 13px;
+    color:     #666;
+    margin:    0;
+}
+
+.hmdg-confirm-ref {
+    font-size:     13px;
+    color:         #999;
+    margin-bottom: 24px;
+}
+
+/* -----------------------------------------------------------------------------
+   10. Responsive
    ----------------------------------------------------------------------------- */
 
 @media ( max-width: 768px ) {
@@ -756,7 +1105,10 @@
     .hmdg-results-header,
     .hmdg-results-tabs,
     .hmdg-results-content,
-    .hmdg-results-footer {
+    .hmdg-approval-bar,
+    .hmdg-revision-panel,
+    .hmdg-send-header,
+    .hmdg-send-body {
         padding-left:  20px;
         padding-right: 20px;
     }
@@ -767,4 +1119,12 @@
     }
 
     .hmdg-results-tab { padding: 12px 14px; font-size: 13px; }
+
+    .hmdg-approval-bar__inner { flex-direction: column; align-items: stretch; }
+    .hmdg-approval-bar__question { font-size: 15px; }
+
+    .hmdg-confirm-inner { padding: 32px 24px; }
+
+    .hmdg-send-actions { flex-direction: column; }
+    .hmdg-send-submit  { width: 100%; justify-content: center; }
 }

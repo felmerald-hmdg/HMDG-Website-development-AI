@@ -1,7 +1,13 @@
 <?php
 /**
  * Front-end template for [hmdg-website-development-ai] shortcode.
- * Phase 1 — multi-step: Hero → Questionnaire → Results.
+ *
+ * Phase 1 — 5-step flow:
+ *   1. Hero
+ *   2. Questionnaire
+ *   3. Results + Approval
+ *   4. Send to PM
+ *   5. Confirmation
  *
  * @package HMDG_Site_Planner
  */
@@ -54,15 +60,29 @@ if ( ! defined( 'ABSPATH' ) ) {
     <!-- ================================================================
          STEP 2 — QUESTIONNAIRE
     ================================================================ -->
-    <section class="hmdg-step hmdg-questionnaire" id="hmdg-step-questionnaire" data-step="2" hidden>
+    <section class="hmdg-step" id="hmdg-step-questionnaire" data-step="2" hidden>
         <?php require HMDG_SP_DIR . 'templates/partials/step-questionnaire.php'; ?>
     </section>
 
     <!-- ================================================================
-         STEP 3 — RESULTS
+         STEP 3 — RESULTS + APPROVAL
     ================================================================ -->
-    <section class="hmdg-step hmdg-results" id="hmdg-step-results" data-step="3" hidden>
+    <section class="hmdg-step" id="hmdg-step-results" data-step="3" hidden>
         <?php require HMDG_SP_DIR . 'templates/partials/step-results.php'; ?>
+    </section>
+
+    <!-- ================================================================
+         STEP 4 — SEND TO PROJECT MANAGER
+    ================================================================ -->
+    <section class="hmdg-step" id="hmdg-step-send" data-step="4" hidden>
+        <?php require HMDG_SP_DIR . 'templates/partials/step-send.php'; ?>
+    </section>
+
+    <!-- ================================================================
+         STEP 5 — CONFIRMATION
+    ================================================================ -->
+    <section class="hmdg-step" id="hmdg-step-confirmation" data-step="5" hidden>
+        <?php require HMDG_SP_DIR . 'templates/partials/step-confirmation.php'; ?>
     </section>
 
 </div><!-- #hmdg-app -->

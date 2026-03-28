@@ -26,6 +26,7 @@ define( 'HMDG_SP_ASSETS',    HMDG_SP_URL . 'assets/' );
 // Autoload core classes
 require_once HMDG_SP_DIR . 'includes/class-hmdg-settings.php';
 require_once HMDG_SP_DIR . 'includes/class-hmdg-ai-engine.php';
+require_once HMDG_SP_DIR . 'includes/class-hmdg-mailer.php';
 require_once HMDG_SP_DIR . 'includes/class-hmdg-ajax.php';
 require_once HMDG_SP_DIR . 'includes/class-hmdg-site-planner.php';
 require_once HMDG_SP_DIR . 'includes/class-hmdg-shortcode.php';
