@@ -14,7 +14,7 @@ This project is structured in 5 phases, each targeting a specific stage of the w
 
 ### Phase 1 — Site Planner
 
-**HMDG Site Planner** is a tool that generates a sitemap and wireframe based on the client's prompt. It is inspired by the Elementor AI Site Planner but stops at planning — no website building or Elementor export.
+**HMDG Site Planner** is an AI-powered tool that generates a sitemap and wireframe based on the client's prompt. It stops at planning — no website building.
 
 #### Completed Tasks
 - [x] Site Planner Questionnaires
