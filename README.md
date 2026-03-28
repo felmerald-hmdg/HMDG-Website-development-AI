@@ -71,7 +71,16 @@ The following information is collected from the client to generate the sitemap a
 ---
 
 ## Getting Started
-*To be defined*
+
+### Shortcode Usage
+
+Create any WordPress page or post and add the following shortcode:
+
+```
+[hmdg-website-development-ai]
+```
+
+The plugin will render the full branded UI on that page. Assets (Bootstrap, fonts, CSS, JS) only load on pages where the shortcode is actually present.
 
 ---
 
